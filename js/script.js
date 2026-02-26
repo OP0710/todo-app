@@ -23,3 +23,16 @@ function addTask() {
   renderTasks();
   taskInput.value = "";
 }
+function renderTasks() {
+  taskList.innerHTML = "";
+
+  tasks.forEach((task, index) => {
+    const li = document.createElement("li");
+
+    const span = document.createElement("span");
+    span.textContent = task.text;
+
+    li.appendChild(span);
+    taskList.appendChild(li);
+  });
+}
