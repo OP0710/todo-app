@@ -36,3 +36,17 @@ function renderTasks() {
     taskList.appendChild(li);
   });
 }
+if (task.completed) {
+  li.classList.add("completed");
+}
+
+const completeBtn = document.createElement("button");
+completeBtn.textContent = "✔";
+completeBtn.onclick = function () {
+  toggleComplete(index);
+};
+function toggleComplete(index) {
+  tasks[index].completed = !tasks[index].completed;
+  saveTasks();
+  renderTasks();
+}
