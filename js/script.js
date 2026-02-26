@@ -50,3 +50,21 @@ function toggleComplete(index) {
   saveTasks();
   renderTasks();
 }
+const btnDiv = document.createElement("div");
+btnDiv.className = "task-buttons";
+
+const deleteBtn = document.createElement("button");
+deleteBtn.textContent = "🗑";
+deleteBtn.onclick = function () {
+  deleteTask(index);
+};
+
+btnDiv.appendChild(completeBtn);
+btnDiv.appendChild(deleteBtn);
+
+li.appendChild(btnDiv);
+function deleteTask(index) {
+  tasks.splice(index, 1);
+  saveTasks();
+  renderTasks();
+}
