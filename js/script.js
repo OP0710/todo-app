@@ -68,3 +68,13 @@ function deleteTask(index) {
   saveTasks();
   renderTasks();
 }
+window.onload = function () {
+  const savedTasks = localStorage.getItem("tasks");
+  if (savedTasks) {
+    tasks = JSON.parse(savedTasks);
+  }
+  renderTasks();
+};
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
